@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import 'materialize';
+@import 'materialize/extras/nouislider';
+
+html, body {
+  height: 100%;
+}
+
+.landing-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.landing-panel {
+  margin: auto 0;
+  padding: 15px 10px;
+  width: 300px;
+}
