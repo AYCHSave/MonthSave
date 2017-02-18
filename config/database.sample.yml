@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: troquinho_development
+  username:
+  password:
+
+test:
+  <<: *default
+  database: troquinho_test
+  username:
+  password:
+
+production:
+  <<: *default
+  database: troquinho_production
+  username:
+  password:
