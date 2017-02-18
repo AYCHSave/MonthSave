@@ -20,6 +20,7 @@ gem 'high_voltage', '~> 3.0.0'
 gem 'omniauth-facebook'
 gem 'simple_form'
 gem 'materialize-form'
+gem 'money-rails', '~>1'
 
 group :development, :test do
   gem 'dotenv-rails'
