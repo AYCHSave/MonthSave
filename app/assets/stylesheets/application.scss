@@ -17,8 +17,11 @@
 @import 'materialize';
 @import 'materialize/extras/nouislider';
 
+@import 'components/titles';
+
 @import 'components/appHeader';
 @import 'components/landing';
+@import 'components/login';
 
 html, body {
   height: 100%;
