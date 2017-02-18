@@ -27,10 +27,10 @@ ActiveRecord::Schema.define(version: 20170218180150) do
 
   create_table "source_accounts", force: :cascade do |t|
     t.string   "service"
-    t.integer  "user_id"
+    t.integer  "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_source_accounts_on_user_id", using: :btree
+    t.index ["owner_id"], name: "index_source_accounts_on_owner_id", using: :btree
   end
 
   create_table "source_transactions", force: :cascade do |t|
@@ -54,6 +54,6 @@ ActiveRecord::Schema.define(version: 20170218180150) do
   end
 
   add_foreign_key "projects", "users", column: "owner_id"
-  add_foreign_key "source_accounts", "users"
+  add_foreign_key "source_accounts", "users", column: "owner_id"
   add_foreign_key "source_transactions", "source_accounts"
 end
