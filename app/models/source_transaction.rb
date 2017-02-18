@@ -1,3 +1,3 @@
 class SourceTransaction < ApplicationRecord
-  belongs_to :source_account
+  belongs_to :account, class_name: 'SourceAccount'
 end

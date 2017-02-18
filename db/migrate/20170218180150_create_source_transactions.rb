@@ -4,7 +4,7 @@ class CreateSourceTransactions < ActiveRecord::Migration[5.0]
       t.string :external_id
       t.string :description
       t.integer :price_cents
-      t.references :source_account, foreign_key: true
+      t.references :account, foreign_key: { to_table: :source_accounts }
 
       t.timestamps
     end
