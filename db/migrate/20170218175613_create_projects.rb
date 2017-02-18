@@ -4,7 +4,7 @@ class CreateProjects < ActiveRecord::Migration[5.0]
       t.string :title
       t.string :description
       t.string :image_url
-      t.references :owner_id
+      t.references :owner, foreign_key: { to_table: :users }
 
       t.timestamps
     end

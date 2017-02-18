@@ -17,15 +17,21 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'haml-rails', '~> 0.9'
 gem 'materialize-sass'
+gem 'high_voltage', '~> 3.0.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails'
-
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+  gem 'awesome_print', '1.6.1'
   gem 'byebug', platform: :mri
 end
 
 group :development do
+  gem 'better_errors'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
   gem 'spring'

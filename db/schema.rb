@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170218175423) do
+ActiveRecord::Schema.define(version: 20170218180150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,28 @@ ActiveRecord::Schema.define(version: 20170218175423) do
     t.string   "title"
     t.string   "description"
     t.string   "image_url"
-    t.integer  "owner_id_id"
+    t.integer  "owner_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["owner_id_id"], name: "index_projects_on_owner_id_id", using: :btree
+    t.index ["owner_id"], name: "index_projects_on_owner_id", using: :btree
+  end
+
+  create_table "source_accounts", force: :cascade do |t|
+    t.string   "service"
+    t.integer  "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_source_accounts_on_owner_id", using: :btree
+  end
+
+  create_table "source_transactions", force: :cascade do |t|
+    t.string   "external_id"
+    t.string   "description"
+    t.integer  "price_cents"
+    t.integer  "source_account_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["source_account_id"], name: "index_source_transactions_on_source_account_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,4 +53,7 @@ ActiveRecord::Schema.define(version: 20170218175423) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "projects", "users", column: "owner_id"
+  add_foreign_key "source_accounts", "users", column: "owner_id"
+  add_foreign_key "source_transactions", "source_accounts"
 end
