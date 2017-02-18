@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170218180150) do
+ActiveRecord::Schema.define(version: 20170218182319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "coin_banks", force: :cascade do |t|
+    t.integer  "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_coin_banks_on_owner_id", using: :btree
+  end
+
+  create_table "project_users", force: :cascade do |t|
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.integer  "percentage"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_users_on_project_id", using: :btree
+    t.index ["user_id"], name: "index_project_users_on_user_id", using: :btree
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
@@ -23,6 +40,16 @@ ActiveRecord::Schema.define(version: 20170218180150) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["owner_id"], name: "index_projects_on_owner_id", using: :btree
+  end
+
+  create_table "savings", force: :cascade do |t|
+    t.integer  "source_transaction_id"
+    t.integer  "coin_bank_id"
+    t.integer  "price_cents"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["coin_bank_id"], name: "index_savings_on_coin_bank_id", using: :btree
+    t.index ["source_transaction_id"], name: "index_savings_on_source_transaction_id", using: :btree
   end
 
   create_table "source_accounts", force: :cascade do |t|
@@ -37,10 +64,10 @@ ActiveRecord::Schema.define(version: 20170218180150) do
     t.string   "external_id"
     t.string   "description"
     t.integer  "price_cents"
-    t.integer  "source_account_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.index ["source_account_id"], name: "index_source_transactions_on_source_account_id", using: :btree
+    t.integer  "account_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["account_id"], name: "index_source_transactions_on_account_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,7 +80,30 @@ ActiveRecord::Schema.define(version: 20170218180150) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "withdrawal_accounts", force: :cascade do |t|
+    t.string   "service"
+    t.integer  "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_withdrawal_accounts_on_project_id", using: :btree
+  end
+
+  create_table "withdrawal_transactions", force: :cascade do |t|
+    t.integer  "price_cents"
+    t.integer  "account_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["account_id"], name: "index_withdrawal_transactions_on_account_id", using: :btree
+  end
+
+  add_foreign_key "coin_banks", "users", column: "owner_id"
+  add_foreign_key "project_users", "projects"
+  add_foreign_key "project_users", "users"
   add_foreign_key "projects", "users", column: "owner_id"
+  add_foreign_key "savings", "coin_banks"
+  add_foreign_key "savings", "source_transactions"
   add_foreign_key "source_accounts", "users", column: "owner_id"
-  add_foreign_key "source_transactions", "source_accounts"
+  add_foreign_key "source_transactions", "source_accounts", column: "account_id"
+  add_foreign_key "withdrawal_accounts", "projects"
+  add_foreign_key "withdrawal_transactions", "withdrawal_accounts", column: "account_id"
 end
