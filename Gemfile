@@ -7,6 +7,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails', '~> 5.0.1'
+gem 'devise'
 gem 'pg'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
@@ -17,8 +18,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml-rails', '~> 0.9'
 gem 'materialize-sass'
 gem 'high_voltage', '~> 3.0.0'
+gem 'omniauth-facebook'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails'
   gem 'pry'
