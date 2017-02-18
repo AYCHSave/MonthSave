@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     root to: 'dashboard#index'
   end
 
-  resources :projects
+  resources :users, :projects
 end
