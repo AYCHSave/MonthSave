@@ -8,6 +8,10 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+# Indexes
+#
+#  index_source_accounts_on_owner_id  (owner_id)
+#
 
 class SourceAccount < ApplicationRecord
   belongs_to :owner, class_name: 'User'

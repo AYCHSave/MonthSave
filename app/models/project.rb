@@ -10,6 +10,10 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+# Indexes
+#
+#  index_projects_on_owner_id  (owner_id)
+#
 
 class Project < ApplicationRecord
   belongs_to :owner, class_name: 'User'

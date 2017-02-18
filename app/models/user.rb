@@ -20,6 +20,11 @@
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
 #
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#
 
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
