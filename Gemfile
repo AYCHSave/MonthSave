@@ -17,6 +17,7 @@ gem 'haml-rails', '~> 0.9'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails'
 
   gem 'byebug', platform: :mri
 end
