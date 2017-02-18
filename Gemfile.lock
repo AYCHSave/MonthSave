@@ -91,9 +91,6 @@ GEM
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
     i18n (0.8.0)
-    jbuilder (2.6.1)
-      activesupport (>= 3.0.0, < 5.1)
-      multi_json (~> 1.2)
     jquery-rails (4.2.2)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -108,6 +105,7 @@ GEM
       mime-types (>= 1.16, < 4)
     material_icons (2.2.0)
       railties (>= 3.2)
+    materialize-form (1.0.6)
     materialize-sass (0.98.0)
       sass (~> 3.3)
     method_source (0.8.2)
@@ -210,6 +208,9 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
     sexp_processor (4.8.0)
+    simple_form (3.4.0)
+      actionpack (> 4, < 5.1)
+      activemodel (> 4, < 5.1)
     slop (3.6.0)
     spring (2.0.1)
       activesupport (>= 4.2)
@@ -256,10 +257,10 @@ DEPENDENCIES
   factory_girl_rails
   haml-rails (~> 0.9)
   high_voltage (~> 3.0.0)
-  jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
   material_icons
+  materialize-form
   materialize-sass
   omniauth-facebook
   pg
@@ -271,6 +272,7 @@ DEPENDENCIES
   rails (~> 5.0.1)
   rspec-rails (~> 3.5)
   sass-rails (~> 5.0)
+  simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

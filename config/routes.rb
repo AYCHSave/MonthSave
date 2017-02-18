@@ -3,4 +3,11 @@ Rails.application.routes.draw do
              path: '',
              path_names: { sign_in: 'login', sign_out: 'logout' },
              controllers: { sessions: 'auth/sessions' }
+
+
+  namespace 'my' do
+    root to: 'dashboard#index'
+  end
+
+  resources :projects
 end

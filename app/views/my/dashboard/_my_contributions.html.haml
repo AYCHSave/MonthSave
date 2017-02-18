@@ -1,0 +1,7 @@
+%h2 Causas suportadas
+
+%ul
+  - @contributing_projects.each do |project|
+    %li
+      %strong= project.title
+      = "#{project.percentage}%"
