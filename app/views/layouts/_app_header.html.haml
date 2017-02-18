@@ -1,3 +1,10 @@
 %nav.app-header
   .nav-wrapper
     %a.brand-logo Troquinho
+    - if current_user
+      %ul.right.hide-on-med-and-down
+        %li
+          %a
+            = "Hello, #{current_user.name}"
+        %li
+          = link_to 'Logout', destroy_user_session_path, method: :delete
