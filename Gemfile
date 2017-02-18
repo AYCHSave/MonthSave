@@ -16,6 +16,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'haml-rails', '~> 0.9'
 gem 'materialize-sass'
+gem 'high_voltage', '~> 3.0.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
