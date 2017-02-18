@@ -11,7 +11,7 @@
 #
 
 class Saving < ApplicationRecord
-  monetize :price_cents
+  monetize :price_cents, as: 'price'
 
   belongs_to :source_transaction
   belongs_to :coin_bank

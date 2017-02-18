@@ -10,7 +10,7 @@
 #
 
 class WithdrawalTransaction < ApplicationRecord
-  monetize :price_cents
+  monetize :price_cents, as: 'price'
 
   belongs_to :account
 end

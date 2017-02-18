@@ -8,6 +8,10 @@
 
 ProjectUser.delete_all
 Project.delete_all
+Saving.delete_all
+CoinBank.delete_all
+SourceTransaction.delete_all
+SourceAccount.delete_all
 User.delete_all
 
 user = User.create!(name: 'Fulano de Tal', email: 'user@example.com', password: '123456')
@@ -20,3 +24,15 @@ project3 = user.own_projects.create!(title: 'AACD', description: 'Associação d
 
 user.contributing_projects.create(project: project1, percentage: 30)
 user.contributing_projects.create(project: project2, percentage: 70)
+
+user.coin_banks.create
+
+user.accounts.create(service: 'Banco do Brasil')
+user.accounts.create(service: 'PayPal')
+
+account = user.accounts.first
+transaction_coffe = account.transactions.create(description: 'Cafézinho', price_cents: 249)
+transaction_movie = account.transactions.create(description: 'Cinema', price_cents: 7325)
+
+user.coin_banks.last.savings.create(source_transaction: transaction_coffe, price_cents: 51)
+user.coin_banks.last.savings.create(source_transaction: transaction_movie, price_cents: 275)

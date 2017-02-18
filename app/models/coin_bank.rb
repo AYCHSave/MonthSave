@@ -10,4 +10,6 @@
 
 class CoinBank < ApplicationRecord
   belongs_to :owner, class_name: 'User'
+
+  has_many :savings
 end

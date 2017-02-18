@@ -12,7 +12,7 @@
 #
 
 class SourceTransaction < ApplicationRecord
-  monetize :price_cents
+  monetize :price_cents, as: 'price'
 
   belongs_to :account, class_name: 'SourceAccount'
 end

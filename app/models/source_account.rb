@@ -11,4 +11,6 @@
 
 class SourceAccount < ApplicationRecord
   belongs_to :owner, class_name: 'User'
+
+  has_many :transactions, class_name: 'SourceTransaction', foreign_key: 'account_id'
 end
