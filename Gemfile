@@ -18,8 +18,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml-rails', '~> 0.9'
 gem 'materialize-sass'
 gem 'high_voltage', '~> 3.0.0'
+gem 'omniauth-facebook'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails'
   gem 'pry'
