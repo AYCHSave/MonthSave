@@ -18,6 +18,7 @@ gem 'haml-rails', '~> 0.9'
 gem 'materialize-sass'
 gem 'high_voltage', '~> 3.0.0'
 gem 'omniauth-facebook'
+gem 'material_icons'
 gem 'simple_form'
 gem 'materialize-form'
 
