@@ -12,4 +12,7 @@ class CoinBank < ApplicationRecord
   belongs_to :owner, class_name: 'User'
 
   has_many :savings
+
+  scope :active, -> { order(created_at: :desc).first }
+  scope :inactives, -> { order(created_at: :desc).offset(1) }
 end

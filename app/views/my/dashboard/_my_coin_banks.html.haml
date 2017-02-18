@@ -1,0 +1,11 @@
+%h2 Meus Cofrinhos
+
+%div
+  %p Cofrinho atual:
+  = coin_bank_savings_total(@coin_banks.active)
+%div
+  %p Cofrinhos anteriores:
+  %ul
+    - @coin_banks.inactives.each do |coin_bank|
+      %li
+        = "#{coin_bank_savings_total(coin_bank)}"
