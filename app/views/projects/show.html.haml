@@ -10,6 +10,12 @@
   %b Image url:
   = @project.image_url
 
+- if @project.account
+  = link_to 'Editar conta', edit_project_account_path(@project)
+- else
+  = link_to 'Adicionar conta', new_project_account_path(@project)
+
+
 = link_to 'Edit', edit_project_path(@project)
 = link_to 'Destroy', @project, :method => :delete, :data => { :confirm => 'Are you sure?' }
 \|

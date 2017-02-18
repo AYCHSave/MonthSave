@@ -14,9 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require materialize-sprockets
-<<<<<<< HEAD
 //= require materialize/extras/nouislider
-=======
 //= require materialize-form
->>>>>>> crud
 //= require_tree .

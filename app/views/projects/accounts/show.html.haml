@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Serviço:
+  = @account.service
+
+= link_to 'Edit', edit_project_account_path(@project)
+\|
+= link_to 'Back', project_path(@project)

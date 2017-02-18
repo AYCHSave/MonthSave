@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'annotate'
 gem 'rails', '~> 5.0.1'
 gem 'devise'
 gem 'pg'
@@ -21,6 +22,7 @@ gem 'omniauth-facebook'
 gem 'material_icons'
 gem 'simple_form'
 gem 'materialize-form'
+gem 'money-rails', '~>1'
 
 group :development, :test do
   gem 'dotenv-rails'
