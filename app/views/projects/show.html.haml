@@ -29,6 +29,7 @@
         - else
           = link_to 'Adicionar Conta', new_project_account_path(@project)
 
-%h5.title Usuários que suportam esta causa
+- if @project.contributing_users.any?
+  %h5.title Usuários que suportam esta causa
 
-= render partial: 'users/list', locals: { users: @project.contributing_users }
+  = render partial: 'users/list', locals: { users: @project.contributing_users }

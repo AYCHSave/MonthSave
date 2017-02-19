@@ -11,7 +11,8 @@
       .light-green-text.accent-4
         %h4= coin_bank_savings_total(@coin_banks.active)
 
-      = link_to 'Fechar Cofrinho', my_terminate_coin_bank_path, method: 'put', class: 'btn'
+      - if @coin_banks.active.savings.any?
+        = link_to 'Fechar Cofrinho', my_terminate_coin_bank_path, method: 'put', class: 'btn'
 
     - @coin_banks.inactives.each do |coin_bank|
       %li.collection-item
