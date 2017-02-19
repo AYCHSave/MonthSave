@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module Troquinho
   class Application < Rails::Application
+    config.autoload_paths << Rails.root.join('lib')
+    
     config.generators do |g|
       g.fixture false
       g.view_specs false
