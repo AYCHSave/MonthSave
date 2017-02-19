@@ -2,7 +2,10 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :service
+    = f.select :service, ['Banco do Brasil', 'PayPal', 'NuBank']
+    = f.input :agency
+    = f.input :account
+    = f.input :email
 
   .form-actions
     = f.button :submit

@@ -19,7 +19,7 @@ class My::AccountsController < ApplicationController
     @account = current_user.accounts.new(account_params)
 
     if @account.save
-      redirect_to my_accounts_path, notice: 'Account was successfully created.'
+      redirect_to my_accounts_path, notice: 'Conta salva com sucesso.'
     else
       render :new
     end
@@ -27,7 +27,7 @@ class My::AccountsController < ApplicationController
 
   def update
     if @account.update(account_params)
-      redirect_to my_accounts_path, notice: 'Account was successfully updated.'
+      redirect_to my_accounts_path, notice: 'Conta alterada com sucesso.'
     else
       render :edit
     end

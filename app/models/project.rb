@@ -24,7 +24,7 @@ class Project < ApplicationRecord
   has_many :project_users
   has_many :contributing_users, class_name: 'User', through: :project_users, source: :user
 
-  validates_presence_of :title, :description
+  validates_presence_of :title, :description, :image_url
 
   def self.search(search)
     return all if search.nil?
