@@ -1,0 +1,9 @@
+.projects-list-horizontal
+  - projects.each do |project|
+    .card.horizontal
+      .project-image-container.card-image
+        = image_tag project.image_url, class: 'project-image'
+      .project-content.card-content
+        .card-title
+          = project.title
+        = project.description
