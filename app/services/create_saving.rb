@@ -12,6 +12,12 @@ class CreateSaving
   private
 
   def calculate_saving_price
-    @transaction.price_cents.ceil(-2) - @transaction.price_cents
+    if @transaction.price.to_f > 1000
+      @transaction.price_cents.ceil(-4) - @transaction.price_cents
+    elsif @transaction.price.to_f > 100
+      @transaction.price_cents.ceil(-3) - @transaction.price_cents
+    else
+      @transaction.price_cents.ceil(-2) - @transaction.price_cents
+    end
   end
 end

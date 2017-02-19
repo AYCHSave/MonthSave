@@ -30,8 +30,10 @@ project2 = user.own_projects.create!(title: 'AACD', description: 'Associação d
 project2.create_account(service: 'CEF')
 
 project3 = user.own_projects.create!(title: 'WWF Brasil', description: 'O WWF-Brasil é uma ONG brasileira, participante de uma rede internacional e comprometida com a conservação da natureza dentro do contexto social e econômico brasileiro.', image_url: 'https://c402277.ssl.cf1.rackcdn.com/photos/9031/images/original/WWF_25mm_no_tab.png')
-account = project3.create_account(service: 'BB')
-project4 = user.own_projects.create!(title: 'CD Os Gonzagas', description: 'Causa para financiamento coletivo da gravação do primeiro CD de lançamento da banda Os Gonzagas!', image_url: 'http://www.baixarsomusica.com/wp-content/uploads/2016/03/2byEP9Jd_zpsctespfxv.jpeg', account: account)
+project3.create_account(service: 'BB')
+
+project4 = user.own_projects.create!(title: 'CD Os Gonzagas', description: 'Causa para financiamento coletivo da gravação do primeiro CD de lançamento da banda Os Gonzagas!', image_url: 'http://www.baixarsomusica.com/wp-content/uploads/2016/03/2byEP9Jd_zpsctespfxv.jpeg')
+project4.create_account(service: 'PayPal')
 
 Project.update(public: true)
 
