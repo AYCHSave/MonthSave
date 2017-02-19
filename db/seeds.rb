@@ -41,7 +41,7 @@ transaction_food = account.transactions.create(description: 'Lanche', price_cent
 user.coin_banks.active.savings.create(source_transaction: transaction_coffee, price_cents: 51)
 user.coin_banks.active.savings.create(source_transaction: transaction_food, price_cents: 51)
 TerminateCoinBank.new(user.coin_banks.active).call
+CoinBank.first.update(terminated_at: (Time.now - 1.month))
 
-user.coin_banks.create
 transaction_movie = account.transactions.create(description: 'Cinema', price_cents: 7325)
 user.coin_banks.active.savings.create(source_transaction: transaction_movie, price_cents: 275)

@@ -11,4 +11,5 @@
       %strong Cofrinhos anteriores:
     - @coin_banks.inactives.each do |coin_bank|
       %li.collection-item
+        %strong= "#{coin_bank.terminated_at.strftime('%B %y')}: "
         = "#{coin_bank_savings_total(coin_bank)}"
