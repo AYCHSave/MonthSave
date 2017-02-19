@@ -1,7 +1,11 @@
 %ul#side-nav.side-nav.fixed
   %li
-    .side-nav-brand
-      %span.title Troquinho
+    .userView
+      %img.circle{ src: current_user.image_url }
+      %span.name 
+        = current_user.name
+      %span.email
+        = current_user.email
   %li
     = link_to my_root_path do
       %i.material-icons attach_money

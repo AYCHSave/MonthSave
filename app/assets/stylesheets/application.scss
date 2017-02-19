@@ -32,10 +32,6 @@ html, body {
 
 .side-nav ~ #main-page {
   padding-left: $sidenav-width;
-
-  .brand-logo {
-    display: none;
-  }
 }
 
 #main-content {
@@ -48,10 +44,9 @@ html, body {
 @media only screen and (max-width : 992px) {
   .side-nav ~ #main-page {
     padding-left: 0;
-
-    .brand-logo {
-      display: block;
-    }
   }
 }
 
+.userView {
+  background-color: $primary-color;
+}
