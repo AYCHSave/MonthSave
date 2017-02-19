@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   namespace 'my' do
     root to: 'dashboard#index'
+    resource :contributing_projects, 'contributing_projects'
   end
 
   resources :projects do
