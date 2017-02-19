@@ -1,7 +1,6 @@
 - path = @account.new_record? ? my_accounts_path : my_account_path(@account)
 
 = simple_form_for(@account, url: path) do |f|
-
   = f.error_notification
 
   .form-inputs

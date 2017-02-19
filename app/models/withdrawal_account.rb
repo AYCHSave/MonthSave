@@ -7,6 +7,9 @@
 #  project_id :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  email      :string
+#  account    :string
+#  agency     :string
 #
 # Indexes
 #
@@ -17,4 +20,6 @@ class WithdrawalAccount < ApplicationRecord
   belongs_to :project
 
   has_many :transactions, class_name: 'WithdrawalTransaction', foreign_key: 'account_id'
+
+  validates :service, presence: true
 end

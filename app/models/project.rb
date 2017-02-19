@@ -24,7 +24,7 @@ class Project < ApplicationRecord
   has_many :project_users
   has_many :contributing_users, class_name: 'User', through: :project_users, source: :user
 
-  validates_presence_of :title, :description
+  validates_presence_of :title, :description, :image_url
 
   def total_contributed
     self.transactions.sum(&:price)
