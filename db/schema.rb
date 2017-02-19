@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170218193714) do
+ActiveRecord::Schema.define(version: 20170219014509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "coin_banks", force: :cascade do |t|
     t.integer  "owner_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.datetime "terminated_at"
     t.index ["owner_id"], name: "index_coin_banks_on_owner_id", using: :btree
   end
 
@@ -65,8 +66,9 @@ ActiveRecord::Schema.define(version: 20170218193714) do
     t.string   "description"
     t.integer  "price_cents"
     t.integer  "account_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.datetime "transaction_date"
     t.index ["account_id"], name: "index_source_transactions_on_account_id", using: :btree
   end
 
