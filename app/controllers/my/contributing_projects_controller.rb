@@ -9,6 +9,6 @@ class My::ContributingProjectsController < ApplicationController
     service = UpdateContributingProjects.new(current_user)
     service.call(params)
 
-    redirect_to action: :edit
+    redirect_to action: :edit, notice: 'Contribuições atualizadas com sucesso.'
   end
 end

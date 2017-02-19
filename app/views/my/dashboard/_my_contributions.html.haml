@@ -11,6 +11,7 @@
             .project-percentage
               %strong
                 = "#{project.percentage}%"
+                = "ou R$ #{project.min}" if project.min > 0
 
     = link_to 'Atualizar', edit_my_contributing_projects_path, class: 'waves-effect waves-light btn'
 

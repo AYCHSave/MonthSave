@@ -28,7 +28,7 @@ class Transactions::ImportCsv
                                                   price_cents: row['PRICE_CENTS'],
                                                   transaction_date: row['CREATED_AT'])
     if source_transaction.valid?
-      CreateSaving.new(source_transaction, @account.owner.coin_banks.active).proccess
+      CreateSaving.new(source_transaction, @account.owner.coin_banks.active).process
     else
       logger_error(source_transaction.errors)
     end

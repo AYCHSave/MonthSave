@@ -4,7 +4,7 @@ class CreateSaving
     @coin_bank   = coin_bank
   end
 
-  def proccess
+  def process
     price = calculate_saving_price
     @coin_bank.savings.create(source_transaction: @transaction, price_cents: price)
   end
