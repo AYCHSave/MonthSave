@@ -10,6 +10,7 @@
     %li.collection-item
       %strong Cofrinhos anteriores:
     - @coin_banks.inactives.each do |coin_bank|
-      %li.collection-item
-        %strong= "#{coin_bank.terminated_at.strftime('%B %y')}: "
+      %li.collection-item.center-align
         = "#{coin_bank_savings_total(coin_bank)}"
+        \/
+        %strong= "#{coin_bank.terminated_at.strftime('%b %y').upcase}"

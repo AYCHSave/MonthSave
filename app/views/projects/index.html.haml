@@ -11,6 +11,7 @@
             .project-content.card-content
               .card-title
                 = project.title
+                = "R$ #{project.total_contributed}"
               .card-description= project.description
 
 = link_to 'New Project', new_project_path
