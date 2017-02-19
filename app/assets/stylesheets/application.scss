@@ -47,6 +47,10 @@ html, body {
   }
 }
 
+.back-button-box {
+  text-align: right;
+}
+
 .userView {
   background-color: $primary-color;
 }
@@ -54,4 +58,13 @@ html, body {
 .facebook-button {
   font-size: 13px;
 }
-    
+
+.account-box {
+  display: flex;
+  align-items: center;
+
+  .account-logo {
+    max-width: 50px;
+    margin: 0 10px;
+  }
+}
