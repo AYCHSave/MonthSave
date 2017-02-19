@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Service:
+  = @account.service
+
+= link_to 'Editar', edit_my_account_path(@account)
+\|
+= link_to 'Voltar', my_accounts_path

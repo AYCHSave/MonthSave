@@ -1,0 +1,8 @@
+= simple_form_for(@account, url: my_accounts_path) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :service
+
+  .form-actions
+    = f.button :submit
