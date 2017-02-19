@@ -13,17 +13,20 @@
       .col.m1
         %input{name: 'existing_projects[][min]', type: 'number', value: project.min.to_i, min: 0}
 
-      .col.m5
-        .range-field
-          %input{name: 'existing_projects[][percentage]', type: 'range', value: project.percentage}
 
-      .col.m1
-        = "#{project.percentage}%"
+      .percentage-selector
+        .col.m5
+          .range-field
+            %input{name: 'existing_projects[][percentage]', type: 'range', value: project.percentage}
 
+        .col.m1
+          %span.percentage-value= project.percentage
+          \%
 
-  %h4.title Adicionar Causa
-  .row
-    = f.input :project, collection: @projects_available, wrapper_html: { class: 'col m12' }
+  - if @projects_available.any?
+    %h4.title Adicionar Causa
+    .row
+      = f.input :project, collection: @projects_available, wrapper_html: { class: 'col m12' }
 
   .row.center-align
     = f.submit 'Atualizar', class: 'btn waves-effect waves-light'

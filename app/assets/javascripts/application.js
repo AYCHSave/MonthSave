@@ -22,3 +22,30 @@ $(document).on('turbolinks:load', function() {
   window.materializeForm.init();
 });
 
+$(document).on('turbolinks:load', function() {
+  var calculateTotalValue = function() {
+    var total = 0;
+
+    $('.contributions-form .percentage-selector input').each(function(index, element) {
+      total += parseInt($(element).val());
+    });
+
+    return total;
+  };
+
+  $('.contributions-form .percentage-selector').each(function(index, wrapper) {
+    var $percentageValue = $(wrapper).find('.percentage-value');
+    var $slider = $(wrapper).find('input');
+
+    var lastValid = 0;
+
+    $slider.on('mousemove', function() {
+      if (calculateTotalValue() > 100) {
+        $(this).val(lastValid);
+      }
+
+      $percentageValue.html($(this).val());
+      lastValid = $(this).val();
+    });
+  });
+});
