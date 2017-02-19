@@ -40,6 +40,7 @@ transaction_coffee = account.transactions.create(description: 'Cafézinho', pric
 transaction_food = account.transactions.create(description: 'Lanche', price_cents: 1749)
 user.coin_banks.active.savings.create(source_transaction: transaction_coffee, price_cents: 51)
 user.coin_banks.active.savings.create(source_transaction: transaction_food, price_cents: 51)
+TerminateCoinBank.new(user.coin_banks.active).call
 
 user.coin_banks.create
 transaction_movie = account.transactions.create(description: 'Cinema', price_cents: 7325)
