@@ -1,0 +1,9 @@
+%h1 Usuário
+
+%h2= @user.name
+
+%h2 Causas suportadas
+
+%ul
+- @user.contributing_projects.each do |project|
+  %li= link_to project.title, project.project
