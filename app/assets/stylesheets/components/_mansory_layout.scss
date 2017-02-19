@@ -1,0 +1,14 @@
+.masonry-layout {
+  column-count: 2;
+  column-gap: 0;
+}
+
+.masonry-layout-panel {
+  break-inside: avoid;
+  padding: 5px;
+}
+
+.masonry-layout-panel-content {
+  padding: 10px;
+  border-radius: 10px;
+}
