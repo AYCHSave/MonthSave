@@ -13,12 +13,14 @@ class UpdateContributingProjects
   protected
 
   def update_existing_projects
-    @params['existing_projects'].each do |id, percentage|
-      if percentage.to_i == 0
-        @user.contributing_projects.find(id).destroy
+    @params['existing_projects'].each do |param|
+      if param['percentage'].to_i == 0
+        @user.contributing_projects.find(param['id']).destroy
       else
-        project = @user.contributing_projects.find(id)
-        project.update(percentage: percentage)
+        project = @user.contributing_projects.find(param['id'])
+        project.min = param['min']
+        project.percentage = param['percentage']
+        project.save
       end
     end
   end

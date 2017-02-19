@@ -4,12 +4,18 @@
 = simple_form_for(@new_project, url: my_contributing_projects_path, method: :put) do |f|
   - @contributing_projects.each do |project|
     .row
-      .col.m5
+      .col.m4
         %strong= project.title
+        %input{name: 'existing_projects[][id]', type: 'hidden', value: project.id}
 
-      .col.m6
+      .col.m1
+        min. R$
+      .col.m1
+        %input{name: 'existing_projects[][min]', type: 'number', value: project.min.to_i}
+
+      .col.m5
         .range-field
-          %input{name: "existing_projects[#{project.id}]", type: 'range', value: project.percentage}
+          %input{name: 'existing_projects[][percentage]', type: 'range', value: project.percentage}
 
       .col.m1
         = "#{project.percentage}%"
