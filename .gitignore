@@ -23,6 +23,5 @@
 .idea
 
 database.yml
-.env
 
 spec/examples.txt
