@@ -2,11 +2,9 @@
   %li
     .side-nav-brand
       %span.title Troquinho
-  %li
-    = link_to my_root_path do
-      %i.material-icons attach_money
-      Meu Cofrinho
-  %li
-    = link_to projects_path do
-      %i.material-icons apps
-      Causas
+  = nav_link my_root_path do
+    %i.material-icons attach_money
+    Meu Cofrinho
+  = nav_link projects_path do
+    %i.material-icons apps
+    Causas
