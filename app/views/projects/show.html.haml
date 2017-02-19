@@ -17,6 +17,9 @@
 - else
   = link_to 'Adicionar conta', new_project_account_path(@project)
 
+%h2 Montante contribuido
+= @project.withdrawal_transactions.sum(&:price)
+
 %h2 Usuários que suportam esta causa
 
 %ul
