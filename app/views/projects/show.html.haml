@@ -24,9 +24,10 @@
     - if current_user == @project.owner
       .card-action
         - if @project.account
-          = link_to 'Editar conta', edit_project_account_path(@project)
+          = link_to 'Ver Conta', project_account_path(@project)
+          = link_to 'Editar Conta', edit_project_account_path(@project)
         - else
-          = link_to 'Adicionar conta', new_project_account_path(@project)
+          = link_to 'Adicionar Conta', new_project_account_path(@project)
 
 %h5.title Usuários que suportam esta causa
 

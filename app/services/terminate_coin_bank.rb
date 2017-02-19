@@ -25,7 +25,7 @@ class TerminateCoinBank
       amount = total * user_project.percentage / 100
 
       project_account = user_project.project.account
-      project_account.withdrawal_transactions.create(price: amount)
+      project_account.transactions.create(price: amount, user: @user)
     end
   end
 
