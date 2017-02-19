@@ -1,25 +1,20 @@
 class My::AccountsController < ApplicationController
-  before_action :set_account, only: [:show, :edit, :update, :destroy]
+  before_action :set_account, only: [:show, :edit, :update, :destroy, :process_csv]
 
-  # GET /my/accounts
   def index
     @accounts = current_user.accounts.all
   end
 
-  # GET /my/accounts/1
   def show
   end
 
-  # GET /my/accounts/new
   def new
     @account = current_user.accounts.new
   end
 
-  # GET /my/accounts/1/edit
   def edit
   end
 
-  # POST /my/accounts
   def create
     @account = current_user.accounts.new(account_params)
 
@@ -30,13 +25,22 @@ class My::AccountsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /my/accounts/1
   def update
     if @account.update(account_params)
       redirect_to my_accounts_path, notice: 'Account was successfully updated.'
     else
       render :edit
     end
+  end
+
+  def upload_csv
+
+  end
+
+  def process_csv
+    count = Transactions::ImportCsv.new(@account, params['csv']['file'].tempfile.path).process
+
+    redirect_to my_accounts_path, notice: "#{count} registros importados com sucesso."
   end
 
   private

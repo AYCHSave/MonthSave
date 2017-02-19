@@ -3,6 +3,7 @@ namespace :transactions do
   task :import, [:user_email, :service_name] => [:environment] do |t, args|
     owner = User.find_by(email: args[:user_email])
     source_account = owner.accounts.find_by(service: args[:service_name])
-    Transactions::ImportCsv.new(source_account, 'transactions.csv').proccess if source_account
+    file = File.open('transactions.csv')
+    Transactions::ImportCsv.new(source_account, file).process if source_account
   end
 end

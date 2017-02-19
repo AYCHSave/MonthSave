@@ -1,0 +1,6 @@
+%h3.title Enviar CSV com transações
+
+= simple_form_for :csv, url: process_csv_my_account_path do |f|
+  = f.input :file, as: :file
+
+  = f.button :submit

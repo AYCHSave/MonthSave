@@ -6,17 +6,22 @@ class Transactions::ImportCsv
     @csv_path = csv_path
   end
 
-  def proccess
+  def process
+    count = 0
+
     ActiveRecord::Base.transaction do
       CSV.foreach(@csv_path, headers: true) do |row|
-        proccess_each(row)
+        count += 1
+        process_each(row)
       end
     end
+
+    count
   end
 
   private
 
-  def proccess_each(row)
+  def process_each(row)
     source_transaction = SourceTransaction.create(account: @account,
                                                   external_id: row['EXTERNAL_ID'],
                                                   description: row['DESCRIPTION'],
@@ -25,7 +30,7 @@ class Transactions::ImportCsv
     if source_transaction.valid?
       CreateSaving.new(source_transaction, @account.owner.coin_banks.active).proccess
     else
-      logger_error(source_transaction.errors) 
+      logger_error(source_transaction.errors)
     end
   end
 

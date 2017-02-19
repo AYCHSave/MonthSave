@@ -25,3 +25,18 @@
             %strong= "R$ #{transaction.price}"
           %td
             %strong.chip.lime.accent-4= "R$ #{transaction.saving.price}"
+
+      %tr
+        %td
+        %td
+        %td
+          %strong Total
+        %td
+          %strong= "R$ #{@account.transactions.sum(&:price)}"
+        %td
+          %strong.chip.lime.accent-4= "R$ #{@account.savings.sum(&:price)}"
+%br
+
+.row
+  .col.sm2
+  = link_to 'Enviar CSV', upload_csv_my_account_path(@account), { class: 'waves-effect waves-light btn' }

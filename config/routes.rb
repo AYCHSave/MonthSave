@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   namespace 'my' do
     root to: 'dashboard#index'
     resource :contributing_projects, 'contributing_projects'
-    resources :accounts
+    resources :accounts do
+      get :upload_csv, on: :member
+      post :process_csv, on: :member
+    end
   end
 
   resources :projects do
