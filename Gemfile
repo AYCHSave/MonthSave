@@ -23,6 +23,7 @@ gem 'material_icons'
 gem 'simple_form'
 gem 'materialize-form'
 gem 'money-rails', '~>1'
+gem 'activerecord-session_store'
 
 group :development, :test do
   gem 'dotenv-rails'

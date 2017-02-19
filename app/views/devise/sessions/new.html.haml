@@ -1,6 +1,4 @@
 .login-panel
   %h3.login-title Log in
-  = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    = f.input :email, autofocus: true
-    = f.input :password, autocomplete: 'off'
-    = f.submit 'Log in', class: 'login-submit-btn'
+  = link_to user_facebook_omniauth_authorize_path, class: 'waves-effect waves-light btn-large indigo darken-1 facebook-button'do
+    %span Login com Facebook
