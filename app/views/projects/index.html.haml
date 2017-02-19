@@ -1,15 +1,16 @@
-%h1 Causas cadastradas
+%h3.title Causas cadastradas
 
-.row
+.projects-list.masonry-layout
   - @projects.each do |project|
-    .col.s6
-      .card
-        .card-content
-          .card-title
-            = link_to image_tag(project.image_url, class: 'col s12'), project
-            = project.title
-          .card-description= project.description
-
-%br
+    = link_to project do
+      .masonry-layout-panel
+        .masonry-layout-panel-content
+          .card
+            .project-image-container.card-image
+              = image_tag project.image_url, class: 'project-image'
+            .project-content.card-content
+              .card-title
+                = project.title
+              .card-description= project.description
 
 = link_to 'New Project', new_project_path
