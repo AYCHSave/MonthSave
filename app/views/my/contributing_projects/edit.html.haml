@@ -1,0 +1,22 @@
+%h1.title Editar contribuições
+
+= simple_form_for(@new_project, url: my_contributing_projects_path, method: :put) do |f|
+  - @contributing_projects.each do |project|
+    .row
+      .col.m5
+        = project.title
+
+      .col.m6
+        .range-field
+          %input{name: "existing_projects[#{project.id}]", type: 'range', value: project.percentage}
+
+      .col.m1
+        = "#{project.percentage}%"
+
+
+  %h4.title Adicionar Causa
+  .row
+    = f.input :project, collection: @projects_available, wrapper_html: { class: 'col m12' }
+
+  .row.center-align
+    = f.submit 'Atualizar', class: 'btn waves-effect waves-light'
