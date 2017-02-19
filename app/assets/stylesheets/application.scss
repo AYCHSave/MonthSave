@@ -20,8 +20,10 @@
 @import 'components/titles';
 @import 'components/app_header';
 @import 'components/side_nav';
+@import 'components/mansory_layout';
 
 @import 'features/dashboard';
+@import 'features/projects';
 @import 'features/login';
 
 html, body {

@@ -36,6 +36,8 @@ class User < ApplicationRecord
   has_many :contributing_projects, class_name: 'ProjectUser', foreign_key: 'user_id'
   has_many :coin_banks, foreign_key: 'owner_id'
 
+  after_create :create_coin_bank
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -43,5 +45,11 @@ class User < ApplicationRecord
       user.name = auth.info.name
       user.image_url = auth.info.image
     end
+  end
+
+  private
+
+  def create_coin_bank
+    self.coin_banks.create
   end
 end
