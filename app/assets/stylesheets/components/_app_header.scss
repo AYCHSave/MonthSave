@@ -1,5 +1,16 @@
 .app-header {
   .brand-logo {
     margin-left: 25px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .brand {
+    margin-bottom: -7px;
   }
 }
