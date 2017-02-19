@@ -7,7 +7,7 @@ class UpdateContributingProjects
     @params = params
 
     update_existing_projects if @params['existing_projects']
-    create_new_project if @params['project_user']['project'].present?
+    create_new_project if @params['project_user'] && @params['project_user']['project'].present?
   end
 
   protected
