@@ -1,0 +1,20 @@
+%h3.title Minhas Contas
+
+%table
+  %thead
+    %tr
+      %th Serviço
+      %th
+      %th
+      %th
+
+  %tbody
+    - @accounts.each do |account|
+      %tr
+        %td= account.service
+        %td= link_to 'Mostrar', my_account_path(account)
+        %td= link_to 'Editar', edit_my_account_path(account)
+
+%br
+
+= link_to 'Adicionar Conta', new_my_account_path

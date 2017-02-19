@@ -223,3 +223,12 @@ pt:
   activerecord:
     models:
       withdrawal_account: Conta
+      source_account: Conta
+      project: Causa
+    attributes:
+      project_user:
+        project: Causa
+      source_account:
+        service: Serviço
+      withdrawal_account:
+        service: Serviço
