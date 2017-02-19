@@ -58,6 +58,7 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
     byebug (9.0.6)
+    chartkick (2.2.2)
     coderay (1.1.1)
     concurrent-ruby (1.0.4)
     debug_inspector (0.0.2)
@@ -274,6 +275,7 @@ DEPENDENCIES
   awesome_print (= 1.6.1)
   better_errors
   byebug
+  chartkick
   devise
   dotenv-rails
   factory_girl_rails

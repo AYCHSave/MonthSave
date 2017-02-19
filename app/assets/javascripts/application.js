@@ -16,6 +16,8 @@
 //= require materialize-sprockets
 //= require materialize/extras/nouislider
 //= require materialize-form
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {

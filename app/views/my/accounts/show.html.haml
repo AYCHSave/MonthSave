@@ -5,6 +5,9 @@
 - if @account.transactions.empty?
   %h5 Esta conta ainda não possui nenhuma transação.
 - else
+
+  = line_chart @account.transactions.map { |t| [t.transaction_date, t.price.to_f] }
+
   %table.striped
     %thead
       %tr
@@ -18,7 +21,7 @@
       - @account.transactions.each do |transaction|
         %tr
           %td= transaction.external_id
-          %td= transaction.created_at
+          %td= transaction.transaction_date
           %td
             %strong= transaction.description
           %td
