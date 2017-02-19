@@ -1,22 +1,25 @@
 .projects-header
-  %h3 Causas
+  %h3 Minhas Causas
   = link_to 'Adicionar Causa', new_project_path, { class: 'waves-effect waves-light btn' }
 
-.projects-list.masonry-layout
-  - @projects.each do |project|
-    = link_to project do
-      .masonry-layout-panel
-        .masonry-layout-panel-content
-          .card
-            .project-image-container.card-image
-              = image_tag project.image_url, class: 'project-image'
-            .project-content.card-content
-              .project-title.card-title
-                %span
-                  = project.title
-                .chip.lime.accent-4
-                  = "R$ #{project.total_contributed}"
-                - unless project.public
-                  .chip
-                    %i.material-icons lock
-              .card-description= project.description
+- if @projects.empty?
+  %h5.center-align Você ainda não possui nenhuma causa cadastrada.
+- else
+  .projects-list.masonry-layout
+    - @projects.each do |project|
+      = link_to project do
+        .masonry-layout-panel
+          .masonry-layout-panel-content
+            .card
+              .project-image-container.card-image
+                = image_tag project.image_url, class: 'project-image'
+              .project-content.card-content
+                .project-title.card-title
+                  %span
+                    = project.title
+                  .chip.lime.accent-4
+                    = "R$ #{project.total_contributed}"
+                  - unless project.public
+                    .chip
+                      %i.material-icons lock
+                .card-description= project.description
