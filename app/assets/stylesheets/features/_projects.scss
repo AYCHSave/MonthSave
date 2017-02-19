@@ -12,6 +12,13 @@
     }
   }
 
+  .project-title {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
   .project-content {
     color: #000;
   }
