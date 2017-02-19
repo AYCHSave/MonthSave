@@ -1,3 +1,8 @@
 .dashboard
-  = render 'my_contributions'
-  = render 'my_coin_banks'
+  .flex-horizontal
+    = render 'my_contributions'
+    = render 'my_coin_banks'
+
+  .coin-banks-historical.card
+    %h5.title Histórico dos cofrinhos
+    = line_chart current_user.coin_banks.inactives.map { |cb| [cb.terminated_at, cb.savings.map(&:price).sum.to_f] }

@@ -1,7 +1,17 @@
 .dashboard {
   display: flex;
+  flex-direction: column;
+}
+
+.flex-horizontal {
+  display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.coin-banks-historical {
+  margin-top: 30px;
+  padding: 15px;
 }
 
 .contributions-widget {
@@ -19,6 +29,7 @@
     align-items: center;
     width: 300px;
     height: 120px;
+    padding: 10px 0;
   }
 
   .project-image {
