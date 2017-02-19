@@ -6,7 +6,8 @@
     %li.collection-item
       %strong Cofrinho atual:
     %li.collection-item.center-align
-      %h4= coin_bank_savings_total(@coin_banks.active)
+      .light-green-text.accent-4
+        %h4= coin_bank_savings_total(@coin_banks.active)
     - @coin_banks.inactives.each do |coin_bank|
       %li.collection-item
         %strong Cofrinhos anteriores:

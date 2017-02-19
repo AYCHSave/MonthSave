@@ -68,6 +68,10 @@ ActiveRecord::Schema.define(version: 20170219060917) do
     t.integer  "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "email"
+    t.string   "password"
+    t.string   "account"
+    t.string   "agency"
     t.index ["owner_id"], name: "index_source_accounts_on_owner_id", using: :btree
   end
 
