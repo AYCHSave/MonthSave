@@ -232,3 +232,8 @@ pt:
         service: Serviço
       withdrawal_account:
         service: Serviço
+      project:
+        title: Título
+        description: Descrição
+        image_url: URL da imagem
+        public: Público
