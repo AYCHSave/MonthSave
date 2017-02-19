@@ -27,6 +27,4 @@
 
 %h5.title Usuários que suportam esta causa
 
-%ul
-  - @project.contributing_users.each do |user|
-    %li= link_to user.name, user
+= render partial: 'users/list', locals: { users: @project.contributing_users }
