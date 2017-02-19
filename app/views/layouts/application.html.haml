@@ -9,7 +9,7 @@
   %body
     - if current_user
       = render 'layouts/side_nav'
-    #main-content
+    #main-page
       = render 'layouts/app_header'
-      .container
+      #main-content
         = yield

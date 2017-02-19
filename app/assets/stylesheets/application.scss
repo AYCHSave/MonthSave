@@ -23,15 +23,34 @@
 @import 'components/landing';
 @import 'components/login';
 @import 'components/side_nav';
+@import 'components/dashboard';
 
 html, body {
   height: 100%;
 }
 
-.side-nav ~ #main-content {
+.side-nav ~ #main-page {
   padding-left: $sidenav-width;
 
   .brand-logo {
     display: none;
   }
 }
+
+#main-content {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 30px;
+  width: 100%;
+}
+
+@media only screen and (max-width : 992px) {
+  .side-nav ~ #main-page {
+    padding-left: 0;
+
+    .brand-logo {
+      display: block;
+    }
+  }
+}
+
