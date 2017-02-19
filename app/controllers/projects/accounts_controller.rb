@@ -52,6 +52,6 @@ class Projects::AccountsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def account_params
-    params.require(:withdrawal_account).permit(:service)
+    params.require(:withdrawal_account).permit(:service, :email, :account, :agency)
   end
 end
