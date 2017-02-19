@@ -1,14 +1,20 @@
 .contributions-widget
-  - @contributing_projects.each do |project|
-    = link_to project.project do
-      .card.horizontal
-        .card-image.project-image-container
-          = image_tag project.image_url, class: 'project-image'
-        .card-content
-          %strong.project-title
-            = project.title
-          .project-percentage
-            %strong
-              = "#{project.percentage}%"
+  - if @contributing_projects.any?
+    - @contributing_projects.each do |project|
+      = link_to project.project do
+        .card.horizontal
+          .card-image.project-image-container
+            = image_tag project.image_url, class: 'project-image'
+          .card-content
+            %strong.project-title
+              = project.title
+            .project-percentage
+              %strong
+                = "#{project.percentage}%"
 
-  = link_to 'Atualizar', edit_my_contributing_projects_path, class: 'waves-effect waves-light btn'
+    = link_to 'Atualizar', edit_my_contributing_projects_path, class: 'waves-effect waves-light btn'
+
+  - else
+    %h5 Você ainda não selecionou nenhuma causa para contribuir. Escolha uma das causas públicas ou crie a sua própria causa.
+
+    = link_to 'Selecionar Causas', edit_my_contributing_projects_path, class: 'waves-effect waves-light btn'

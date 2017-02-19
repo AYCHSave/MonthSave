@@ -1,10 +1,11 @@
-%h1.title Editar contribuições
+- if @contributing_projects.any?
+  %h3.title Distribuir Contribuições
 
 = simple_form_for(@new_project, url: my_contributing_projects_path, method: :put) do |f|
   - @contributing_projects.each do |project|
     .row
       .col.m5
-        = project.title
+        %strong= project.title
 
       .col.m6
         .range-field

@@ -1,9 +1,21 @@
-%p#notice= notice
+%h3.title #{@project.title}: #{@account.service}
 
-%p
-  %b Serviço:
-  = @account.service
+%h4 Lista de contribuições
 
-= link_to 'Edit', edit_project_account_path(@project)
-\|
-= link_to 'Back', project_path(@project)
+- if @account.transactions.empty?
+  %h5 Esta conta ainda não possui nenhuma transação.
+- else
+  %table.striped
+    %thead
+      %tr
+        %th Criado em
+        %th Usuário
+        %th Valor
+
+    %tbody
+      - @account.transactions.each do |transaction|
+        %tr
+          %td= transaction.created_at
+          %td= transaction.user.name
+          %td
+            %strong.chip.lime.accent-4= "R$ #{transaction.price}"

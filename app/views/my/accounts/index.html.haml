@@ -2,22 +2,25 @@
   %h3 Minhas Contas
   = link_to 'Adicionar Conta', new_my_account_path, { class: 'waves-effect waves-light btn' }
 
-%table
-  %thead
-    %tr
-      %th Serviço
-      %th Total Transações
-      %th Total Cofrinho
-      %th
-      %th
-
-  %tbody
-    - @accounts.each do |account|
+- if @accounts.empty?
+  %h5 Você ainda não possui nenhuma conta cadastrada.
+- else
+  %table
+    %thead
       %tr
-        %td
-          %strong= account.service
-        %td= "R$ #{account.transactions.sum(&:price)}"
-        %td
-          %strong.chip.lime.accent-4= "R$ #{account.savings.sum(&:price)}"
-        %td= link_to 'Mostrar', my_account_path(account), { class: 'waves-effect waves-light btn' }
-        %td= link_to 'Editar', edit_my_account_path(account), { class: 'waves-effect waves-light btn' }
+        %th Serviço
+        %th Total Transações
+        %th Total Cofrinho
+        %th
+        %th
+
+    %tbody
+      - @accounts.each do |account|
+        %tr
+          %td
+            %strong= account.service
+          %td= "R$ #{account.transactions.sum(&:price)}"
+          %td
+            %strong.chip.lime.accent-4= "R$ #{account.savings.sum(&:price)}"
+          %td= link_to 'Mostrar', my_account_path(account), { class: 'waves-effect waves-light btn' }
+          %td= link_to 'Editar', edit_my_account_path(account), { class: 'waves-effect waves-light btn' }

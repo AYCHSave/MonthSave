@@ -3,7 +3,7 @@
   = link_to 'Editar', edit_my_account_path(@account), { class: 'waves-effect waves-light btn' }
 
 - if @account.transactions.empty?
-  %h4 Esta conta ainda não possui nenhuma transação.
+  %h5 Esta conta ainda não possui nenhuma transação.
 - else
   %table.striped
     %thead
