@@ -1,0 +1,6 @@
+.projects-search
+  = form_tag projects_path, method: 'get', class: 'projects-search-form' do
+    = text_field_tag :search, params[:search], placeholder: 'Busque por causas', class: 'projects-search-submit'
+    = button_tag type: 'submit', class: 'projects-search-submit waves-effect waves-light btn' do
+      %i.material-icons
+        search
