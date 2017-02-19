@@ -230,8 +230,14 @@ pt:
         project: Causa
       source_account:
         service: Serviço
+        agency: Agência
+        account: Conta
+        password: Senha
       withdrawal_account:
         service: Serviço
+        agency: Agência
+        account: Conta
+        password: Senha
       project:
         title: Título
         description: Descrição
