@@ -11,7 +11,10 @@
       = render 'layouts/side_nav'
     #main-page
       = render 'layouts/app_header'
-      = notice
+      - if notice
+        .notice-message.light-green.darken-3
+          .white-text
+            = notice
 
       #main-content
         = yield

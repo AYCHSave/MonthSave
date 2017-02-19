@@ -20,7 +20,7 @@ class Projects::AccountsController < ApplicationController
     @account = @project.build_account(account_params)
 
     if @account.save
-      redirect_to project_account_path(@project, @account), notice: 'Account was successfully created.'
+      redirect_to project_account_path(@project, @account), notice: 'Conta salva com sucesso.'
     else
       render :new
     end
@@ -29,7 +29,7 @@ class Projects::AccountsController < ApplicationController
   # PATCH/PUT /projects/accounts/1
   def update
     if @account.update(account_params)
-      redirect_to project_account_path(@project), notice: 'Account was successfully updated.'
+      redirect_to project_account_path(@project), notice: 'Conta alterada com sucesso.'
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class Projects::AccountsController < ApplicationController
   # DELETE /projects/accounts/1
   def destroy
     @account.destroy
-    redirect_to @project, notice: 'Account was successfully destroyed.'
+    redirect_to @project, notice: 'Conta excluída com sucesso.'
   end
 
   private
