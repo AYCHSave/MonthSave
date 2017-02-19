@@ -29,6 +29,6 @@ class UpdateContributingProjects
     project_id = @params['project_user']['project']
 
     project = Project.find(project_id.to_i)
-    @user.contributing_projects.create(project: project, percentage: 30)
+    @user.contributing_projects.create!(project: project, percentage: 30, min: 0)
   end
 end

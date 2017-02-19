@@ -25,7 +25,7 @@ class ProjectsController < ApplicationController
     @project = current_user.own_projects.new(project_params)
 
     if @project.save
-      redirect_to @project, notice: 'Causa salva com sucesso.'
+      redirect_to new_project_account_path(@project), notice: 'Causa salva com sucesso.'
     else
       render :new
     end
