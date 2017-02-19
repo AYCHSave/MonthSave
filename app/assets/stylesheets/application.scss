@@ -18,12 +18,13 @@
 @import 'materialize/extras/nouislider';
 
 @import 'components/titles';
-
 @import 'components/app_header';
-@import 'components/landing';
-@import 'components/login';
 @import 'components/side_nav';
-@import 'components/dashboard';
+@import 'components/mansory_layout';
+
+@import 'features/dashboard';
+@import 'features/login';
+@import 'features/projects';
 
 html, body {
   height: 100%;
