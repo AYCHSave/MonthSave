@@ -4,6 +4,10 @@ class My::DashboardController < ApplicationController
     @coin_banks = current_user.coin_banks
   end
 
+  def projects
+    @projects = current_user.own_projects
+  end
+
   def terminate_coin_bank
     TerminateCoinBank.new(current_user.coin_banks.active).call
 

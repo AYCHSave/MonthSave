@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     root to: 'dashboard#index'
     put :terminate_coin_bank, to: 'dashboard#terminate_coin_bank'
 
+    get 'projects', to: 'dashboard#projects'
+
     resource :contributing_projects, 'contributing_projects'
     resources :accounts do
       get :upload_csv, on: :member
