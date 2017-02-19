@@ -26,6 +26,12 @@ class Project < ApplicationRecord
 
   validates_presence_of :title, :description, :image_url
 
+  def self.search(search)
+    return all if search.nil?
+    where('name ILIKE ?', "%#{search}%")
+    where('description ILIKE ?', "%#{search}%")
+  end
+
   def total_contributed
     self.transactions.sum(&:price)
   end

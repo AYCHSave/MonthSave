@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   def index
-    @projects = Project.all
+    @projects = Project.search(params[:search])
   end
 
   # GET /projects/1
