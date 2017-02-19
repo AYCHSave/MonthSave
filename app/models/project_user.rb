@@ -25,5 +25,5 @@ class ProjectUser < ApplicationRecord
   validates_inclusion_of :percentage, :in => 1..100
   validates :min_cents, :numericality => { :greater_than_or_equal_to => 0 }, allow_nil: true
 
-  delegate :title, :image_url, to: :project
+  delegate :title, :description, :image_url, to: :project
 end

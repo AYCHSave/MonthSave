@@ -1,9 +1,10 @@
-%h1 Usuário
-
-%h2= @user.name
-
-%h2 Causas suportadas
-
-%ul
-- @user.contributing_projects.each do |project|
-  %li= link_to project.title, project.project
+.user-view
+  .card.horizontal
+    .user-image-container.card-image
+      = image_tag @user.image_url, class: 'user-image'
+    .user-content.card-content
+      .card-title
+        = @user.name
+      = @user.email
+%h5.title Causas suportadas
+= render partial: 'projects/list', locals: { projects: @user.contributing_projects }
