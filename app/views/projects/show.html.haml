@@ -1,32 +1,32 @@
-%h3.title Causa
+.projects-header
+  %h3 Causa
+  %div
+    = link_to 'Editar', edit_project_path(@project), class: 'waves-effect waves-light btn'
+    = link_to @project, method: :delete,
+              data: { confirm: 'Você tem certeza?' }, class: 'waves-effect waves-light btn red' do
+      %i.material-icons.left
+        archive
+      Arquivar
 
-%p#notice= notice
+.project-page
+  .card
+    .project-image-container.card-image
+      = image_tag @project.image_url, class: 'project-image'
+    .project-content.card-content
+      .project-title.card-title
+        %span
+          = @project.title
+        .chip.lime.accent-4
+          = "R$ #{@project.total_contributed}"
+      = @project.description
+    .card-action
+      - if @project.account
+        = link_to 'Editar conta', edit_project_account_path(@project)
+      - else
+        = link_to 'Adicionar conta', new_project_account_path(@project)
 
-%p
-  %b Title:
-  = @project.title
-%p
-  %b Description:
-  = @project.description
-%p
-  %b Image url:
-  = @project.image_url
-
-- if @project.account
-  = link_to 'Editar conta', edit_project_account_path(@project)
-- else
-  = link_to 'Adicionar conta', new_project_account_path(@project)
-
-%h2 Montante contribuido
-= "R$ #{@project.total_contributed}"
-
-%h2 Usuários que suportam esta causa
+%h5.title Usuários que suportam esta causa
 
 %ul
   - @project.contributing_users.each do |user|
     %li= link_to user.name, user
-
-= link_to 'Edit', edit_project_path(@project)
-= link_to 'Destroy', @project, :method => :delete, :data => { :confirm => 'Are you sure?' }
-\|
-= link_to 'Back', projects_path
