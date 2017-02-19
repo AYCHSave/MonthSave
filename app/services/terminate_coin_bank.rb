@@ -15,7 +15,7 @@ class TerminateCoinBank
   protected
 
   def terminate_coin_bank
-    @coin_bank.terminated_at = Time.now
+    @coin_bank.update(terminated_at: Time.now)
   end
 
   def create_transactions

@@ -22,4 +22,8 @@ class Project < ApplicationRecord
   has_many :withdrawal_transactions, through: :account
   has_many :project_users
   has_many :contributing_users, class_name: 'User', through: :project_users, source: :user
+
+  def total_contributed
+    self.withdrawal_transactions.sum(&:price)
+  end
 end

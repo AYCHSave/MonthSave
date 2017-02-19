@@ -1,15 +1,19 @@
-%h1 Causas cadastradas
+.projects-header
+  %h3 Causas cadastradas
+  = link_to 'Cadastrar Projeto', new_project_path, { class: 'waves-effect waves-light btn' }
 
-.row
+.projects-list.masonry-layout
   - @projects.each do |project|
-    .col.s6
-      .card
-        .card-content
-          .card-title
-            = link_to image_tag(project.image_url, class: 'col s12'), project
-            = project.title
-          .card-description= project.description
-
-%br
-
-= link_to 'New Project', new_project_path
+    = link_to project do
+      .masonry-layout-panel
+        .masonry-layout-panel-content
+          .card
+            .project-image-container.card-image
+              = image_tag project.image_url, class: 'project-image'
+            .project-content.card-content
+              .project-title.card-title
+                %span
+                  = project.title
+                .chip.lime.accent-4
+                  = "R$ #{project.total_contributed}"
+              .card-description= project.description
