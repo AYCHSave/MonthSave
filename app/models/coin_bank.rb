@@ -2,10 +2,11 @@
 #
 # Table name: coin_banks
 #
-#  id         :integer          not null, primary key
-#  owner_id   :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id            :integer          not null, primary key
+#  owner_id      :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  terminated_at :datetime
 #
 # Indexes
 #
