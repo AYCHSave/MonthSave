@@ -43,7 +43,7 @@ class Projects::AccountsController < ApplicationController
 
   private
   def set_project
-    @project = current_user.own_projects.find(params[:project_id])
+    @project = current_user.own_projects.find_by(uuid: params[:project_id])
   end
 
   def set_account

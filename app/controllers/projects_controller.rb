@@ -50,7 +50,7 @@ class ProjectsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_project
-    @project = Project.find(params[:id])
+    @project = Project.find_by(uuid: params[:id])
   end
 
   def set_project_from_current_user

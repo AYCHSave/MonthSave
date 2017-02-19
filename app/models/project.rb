@@ -10,6 +10,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  public      :boolean          default("false")
+#  uuid        :string
 #
 # Indexes
 #
@@ -24,7 +25,9 @@ class Project < ApplicationRecord
   has_many :project_users
   has_many :contributing_users, class_name: 'User', through: :project_users, source: :user
 
-  validates_presence_of :title, :description, :image_url
+  validates_presence_of :title, :description, :image_url, :uuid
+
+  before_validation :generate_uuid
 
   def self.search(search)
     return all if search.nil?
@@ -34,5 +37,15 @@ class Project < ApplicationRecord
 
   def total_contributed
     self.transactions.sum(&:price)
+  end
+
+  def to_param
+    self.uuid
+  end
+
+  protected
+
+  def generate_uuid
+    self.uuid ||= SecureRandom.uuid
   end
 end
