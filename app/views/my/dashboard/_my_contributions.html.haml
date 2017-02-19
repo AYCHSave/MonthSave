@@ -1,7 +1,12 @@
-%h2 Causas suportadas
-
-%ul
+.contributions-widget
   - @contributing_projects.each do |project|
-    %li
-      %strong= project.title
-      = "#{project.percentage}%"
+    = link_to project.project do
+      .card.horizontal
+        .card-image.project-image-container
+          = image_tag project.image_url, class: 'project-image'
+        .card-content
+          %strong.project-title
+            = project.title
+          .project-percentage
+            %strong
+              = "#{project.percentage}%"

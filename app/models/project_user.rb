@@ -21,5 +21,5 @@ class ProjectUser < ApplicationRecord
 
   validates_inclusion_of :percentage, :in => 1..100
 
-  delegate :title, to: :project
+  delegate :title, :image_url, to: :project
 end
