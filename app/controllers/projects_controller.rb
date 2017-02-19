@@ -54,11 +54,11 @@ class ProjectsController < ApplicationController
   end
 
   def set_project_from_current_user
-    @project = current_user.own_projects.find(params[:id])
+    @project = current_user.own_projects.find_by(uuid: params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
   def project_params
-    params.require(:project).permit(:title, :description, :image_url)
+    params.require(:project).permit(:title, :description, :image_url, :public)
   end
 end
