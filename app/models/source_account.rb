@@ -7,6 +7,10 @@
 #  owner_id   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  email      :string
+#  password   :string
+#  account    :string
+#  agency     :string
 #
 # Indexes
 #
@@ -18,4 +22,6 @@ class SourceAccount < ApplicationRecord
 
   has_many :transactions, class_name: 'SourceTransaction', foreign_key: 'account_id'
   has_many :savings, through: :transactions
+
+  validates :service, presence: true
 end
