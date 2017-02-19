@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+WithdrawalAccount.delete_all
 ProjectUser.delete_all
 Project.delete_all
 Saving.delete_all
