@@ -58,6 +58,12 @@ html, body {
 
 .facebook-button {
   font-size: 13px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  img {
+    margin-right: 10px;
+  }
 }
 
 .notice-message {
