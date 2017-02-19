@@ -25,6 +25,7 @@
 @import 'features/dashboard';
 @import 'features/projects';
 @import 'features/login';
+@import 'features/users';
 
 html, body {
   height: 100%;
@@ -47,6 +48,10 @@ html, body {
   }
 }
 
+.back-button-box {
+  text-align: right;
+}
+
 .userView {
   background-color: $primary-color;
 }
@@ -57,4 +62,14 @@ html, body {
 
 .help-block {
   color: gray;
+}
+
+.account-box {
+  display: flex;
+  align-items: center;
+
+  .account-logo {
+    max-width: 50px;
+    margin: 0 10px;
+  }
 }

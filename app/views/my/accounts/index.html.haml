@@ -3,7 +3,8 @@
   = link_to 'Adicionar Conta', new_my_account_path, { class: 'waves-effect waves-light btn' }
 
 - if @accounts.empty?
-  %h5 Você ainda não possui nenhuma conta cadastrada.
+  .center-align
+    %h5 Você ainda não possui nenhuma conta cadastrada.
 - else
   %table
     %thead
@@ -18,7 +19,9 @@
       - @accounts.each do |account|
         %tr
           %td
-            %strong= account.service
+            .account-box
+              %img.circle.account-logo{ src: account_logo(account.service) }
+              %strong= account.service
           %td= "R$ #{account.transactions.sum(&:price)}"
           %td
             %strong.chip.lime.accent-4= "R$ #{account.savings.sum(&:price)}"

@@ -1,0 +1,17 @@
+.users-list {
+  .user-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+  }
+
+  .user-image {
+    border-radius: 50% !important;
+    height: 80px;
+  }
+
+  .user-content {
+    color: #000;
+  }
+}

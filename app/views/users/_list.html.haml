@@ -1,0 +1,10 @@
+.users-list
+  - users.map do |user|
+    = link_to user do
+      .card.horizontal
+        .user-image-container.card-image
+          = image_tag user.image_url, class: 'user-image'
+        .user-content.card-content
+          .card-title
+            = user.name
+          = user.email

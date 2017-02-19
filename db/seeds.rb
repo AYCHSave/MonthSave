@@ -16,7 +16,12 @@ SourceTransaction.delete_all
 SourceAccount.delete_all
 User.delete_all
 
-user = User.create!(name: 'Fulano de Tal', email: 'user@example.com', password: '123456')
+user = User.create!(
+    name: 'Fulano de Tal',
+    image_url: 'http://www.clubvelicotrasimeno.it/Portals/0/Users/061/29/829/Steve%20Murray.png',
+    email: 'user@example.com',
+    password: '123456'
+)
 
 project1 = user.own_projects.create!(title: 'Criança Esperança', description: 'Criança Esperança é um projeto da Rede Globo em parceria com a UNESCO - Órgão das Nações Unidas para a Educação, a Ciência e a Cultura.', image_url: 'http://www.unesco.org/new/fileadmin/MULTIMEDIA/FIELD/Brasilia/images/brz_shs_logo_CRIESP_2016.png')
 project1.create_account(service: 'Paypal')
