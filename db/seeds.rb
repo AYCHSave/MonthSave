@@ -26,11 +26,12 @@ user = User.create!(
 project1 = user.own_projects.create!(title: 'Criança Esperança', description: 'Criança Esperança é um projeto da Rede Globo em parceria com a UNESCO - Órgão das Nações Unidas para a Educação, a Ciência e a Cultura.', image_url: 'http://www.unesco.org/new/fileadmin/MULTIMEDIA/FIELD/Brasilia/images/brz_shs_logo_CRIESP_2016.png')
 project1.create_account!(service: 'Paypal')
 
-project2 = user.own_projects.create!(title: 'WWF Brasil', description: 'O WWF-Brasil é uma ONG brasileira, participante de uma rede internacional e comprometida com a conservação da natureza dentro do contexto social e econômico brasileiro.', image_url: 'https://c402277.ssl.cf1.rackcdn.com/photos/9031/images/original/WWF_25mm_no_tab.png')
-project2.create_account(service: 'BB')
+project2 = user.own_projects.create!(title: 'AACD', description: 'Associação de Assistência à Criança Deficiente (AACD) é uma associação sem fins lucrativos brasileira, com sede em São Paulo - SP, que visa tratar, reabilitar e reintegrar à sociedade crianças, adolescentes e adultos portadores de deficiência física.', image_url: 'http://www.infoescola.com/wp-content/uploads/2010/05/aacd.gif')
+project2.create_account(service: 'CEF')
 
-project3 = user.own_projects.create!(title: 'AACD', description: 'Associação de Assistência à Criança Deficiente (AACD) é uma associação sem fins lucrativos brasileira, com sede em São Paulo - SP, que visa tratar, reabilitar e reintegrar à sociedade crianças, adolescentes e adultos portadores de deficiência física.', image_url: 'http://www.infoescola.com/wp-content/uploads/2010/05/aacd.gif')
-project3.create_account(service: 'CEF')
+project3 = user.own_projects.create!(title: 'WWF Brasil', description: 'O WWF-Brasil é uma ONG brasileira, participante de uma rede internacional e comprometida com a conservação da natureza dentro do contexto social e econômico brasileiro.', image_url: 'https://c402277.ssl.cf1.rackcdn.com/photos/9031/images/original/WWF_25mm_no_tab.png')
+account = project3.create_account(service: 'BB')
+project4 = user.own_projects.create!(title: 'CD Os Gonzagas', description: 'Causa para financiamento coletivo da gravação do primeiro CD de lançamento da banda Os Gonzagas!', image_url: 'http://www.baixarsomusica.com/wp-content/uploads/2016/03/2byEP9Jd_zpsctespfxv.jpeg', account: account)
 
 Project.update(public: true)
 
