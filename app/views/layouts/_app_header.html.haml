@@ -1,6 +1,6 @@
 %nav.app-header
   .nav-wrapper
-    %a.brand-logo Troquinho
+    = link_to 'Troquinho', root_path, class: 'brand-logo'
     - if current_user
       %ul.right.hide-on-med-and-down
         %li

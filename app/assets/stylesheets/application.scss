@@ -22,7 +22,16 @@
 @import 'components/app_header';
 @import 'components/landing';
 @import 'components/login';
+@import 'components/side_nav';
 
 html, body {
   height: 100%;
+}
+
+.side-nav ~ #main-content {
+  padding-left: $sidenav-width;
+
+  .brand-logo {
+    display: none;
+  }
 }
