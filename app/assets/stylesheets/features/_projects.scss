@@ -1,3 +1,11 @@
+.projects-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 2px solid #000;
+}
+
 .projects-list {
   .project-image-container {
     display: flex;

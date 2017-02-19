@@ -1,4 +1,6 @@
-%h3.title Causas cadastradas
+.projects-header
+  %h3 Causas cadastradas
+  = link_to 'Cadastrar Projeto', new_project_path, { class: 'waves-effect waves-light btn' }
 
 .projects-list.masonry-layout
   - @projects.each do |project|
@@ -15,5 +17,3 @@
                 .chip.lime.accent-4
                   = "R$ #{project.total_contributed}"
               .card-description= project.description
-
-= link_to 'New Project', new_project_path
