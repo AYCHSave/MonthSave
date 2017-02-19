@@ -1,9 +1,27 @@
-%p#notice= notice
+.projects-header
+  %h3= @account.service
+  = link_to 'Editar', edit_my_account_path(@account), { class: 'waves-effect waves-light btn' }
 
-%p
-  %b Service:
-  = @account.service
+- if @account.transactions.empty?
+  %h4 Esta conta ainda não possui nenhuma transação.
+- else
+  %table.striped
+    %thead
+      %tr
+        %th Código
+        %th Criado em
+        %th.col.s8 Descrição
+        %th Valor
+        %th Cofrinho
 
-= link_to 'Editar', edit_my_account_path(@account)
-\|
-= link_to 'Voltar', my_accounts_path
+    %tbody
+      - @account.transactions.each do |transaction|
+        %tr
+          %td= transaction.external_id
+          %td= transaction.created_at
+          %td
+            %strong= transaction.description
+          %td
+            %strong= "R$ #{transaction.price}"
+          %td
+            %strong.chip.lime.accent-4= "R$ #{transaction.saving.price}"
