@@ -1,4 +1,5 @@
-%h3.title Distribuir Contribuições
+- if @contributing_projects.any?
+  %h3.title Distribuir Contribuições
 
 = simple_form_for(@new_project, url: my_contributing_projects_path, method: :put) do |f|
   - @contributing_projects.each do |project|
