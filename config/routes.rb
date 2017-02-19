@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :projects do
     resource :account, controller: 'projects/accounts'
   end
+
+  resources :users
 end
