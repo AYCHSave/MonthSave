@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   namespace 'my' do
     root to: 'dashboard#index'
+    put :terminate_coin_bank, to: 'dashboard#terminate_coin_bank'
+
     resource :contributing_projects, 'contributing_projects'
     resources :accounts do
       get :upload_csv, on: :member
