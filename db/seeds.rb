@@ -32,6 +32,8 @@ project2.create_account(service: 'BB')
 project3 = user.own_projects.create!(title: 'AACD', description: 'Associação de Assistência à Criança Deficiente (AACD) é uma associação sem fins lucrativos brasileira, com sede em São Paulo - SP, que visa tratar, reabilitar e reintegrar à sociedade crianças, adolescentes e adultos portadores de deficiência física.', image_url: 'http://www.infoescola.com/wp-content/uploads/2010/05/aacd.gif')
 project3.create_account(service: 'CEF')
 
+Project.update(public: true)
+
 user.contributing_projects.create!(project: project1, percentage: 30, min_cents: 0)
 user.contributing_projects.create!(project: project2, percentage: 70, min_cents: 0)
 

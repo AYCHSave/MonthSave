@@ -35,6 +35,10 @@ class Project < ApplicationRecord
     where('description ILIKE ?', "%#{search}%")
   end
 
+  def self.public
+    where(public: true)
+  end
+
   def total_contributed
     self.transactions.sum(&:price)
   end

@@ -49,9 +49,9 @@ class TerminateCoinBank
   def charge_user_difference(coin_bank, amount, project_title)
     params = { transaction_date: Time.now,
               description: "Troquinho contribuição mínima #{project_title}",
-              price: amount, external_id: rand(36**8).to_s(36) }
+              price: 0, external_id: rand(36**8).to_s(36) }
 
     transaction = @user.accounts.first.transactions.create!(params)
-    coin_bank.savings.create(source_transaction: transaction, price_cents: 0)
+    coin_bank.savings.create(source_transaction: transaction, price: amount)
   end
 end

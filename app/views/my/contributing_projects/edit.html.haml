@@ -3,7 +3,7 @@
 
 = simple_form_for(@new_project, url: my_contributing_projects_path, method: :put) do |f|
   - @contributing_projects.each do |project|
-    .row
+    .row.contributions-form
       .col.m4
         %strong= project.title
         %input{name: 'existing_projects[][id]', type: 'hidden', value: project.id}
