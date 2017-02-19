@@ -37,8 +37,8 @@ project4.create_account(service: 'PayPal')
 
 Project.update(public: true)
 
-user.contributing_projects.create!(project: project1, percentage: 30, min_cents: 0)
-user.contributing_projects.create!(project: project2, percentage: 70, min_cents: 0)
+user.contributing_projects.create!(project: project1, percentage: 60, min_cents: 0)
+user.contributing_projects.create!(project: project2, percentage: 40, min_cents: 0)
 
 user.accounts.create!(service: 'Banco do Brasil')
 user.accounts.create!(service: 'PayPal')
@@ -48,8 +48,8 @@ account = user.accounts.first
 user.coin_banks.create!
 transaction_coffee = account.transactions.create(description: 'Cafézinho', price_cents: 249, external_id: 1)
 transaction_food = account.transactions.create(description: 'Lanche', price_cents: 1749, external_id: 2)
-user.coin_banks.active.savings.create!(source_transaction: transaction_coffee, price_cents: 51)
-user.coin_banks.active.savings.create!(source_transaction: transaction_food, price_cents: 51)
+user.coin_banks.active.savings.create!(source_transaction: transaction_coffee, price_cents: 5100)
+user.coin_banks.active.savings.create!(source_transaction: transaction_food, price_cents: 5100)
 TerminateCoinBank.new(user.coin_banks.active).call
 CoinBank.first.update!(terminated_at: (Time.now - 1.month))
 
