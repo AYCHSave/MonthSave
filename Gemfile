@@ -24,6 +24,7 @@ gem 'simple_form'
 gem 'materialize-form'
 gem 'money-rails', '~>1'
 gem 'activerecord-session_store'
+gem 'chartkick'
 
 group :development, :test do
   gem 'dotenv-rails'
