@@ -1,5 +1,9 @@
 # Troquinho
 
+**This app was made in a one-full-day Hackathon ([1˚ Conductor Hackathon (pt-br)](http://talks.conductor.com.br/hackathon/)).**
+
+### Description
+
 Troquinho is a service which integrate an bank account or credit card user and automatically rounds the bills to top value. On the end of the month, the accumulated savings is used for support selected projects by user. These projects can be NGO causes, collective projcas as an family travel and private projects as money saving. The users can create their on projects and define their round rules.
 
 ## Technologies
